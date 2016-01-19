@@ -365,8 +365,8 @@ def tails(double x_feed, double x_prod, double x_tail, double feed=0,
     else:
         return product * cpp_enrichment.tail_per_prod(x_feed, x_prod, x_tail)
 
-def value_func(double x):
-    """value_func(x)
+def value_func(x):
+    """
     Calculates the value or separation potential of an assay.
 
     .. math::
@@ -383,7 +383,7 @@ def value_func(double x):
     val : float
         As calculated above.
     """
-    return cpp_enrichment.value_func(x)
+    return (2*x - 1) * np.log(x / (x - 1))
 
 def swu(double x_feed, double x_prod, double x_tail, double feed=0, 
         double product=0, double tails=0):
